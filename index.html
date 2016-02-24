@@ -5,10 +5,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Extensible multi-protocol image server in Java
+  <meta name="description" content="High-performance dynamic image server in Java
 ">
 
-  <title>Cantaloupe</title>
+  <title>
+    Cantaloupe
+    
+      :: Home
+    
+  </title>
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="/cantaloupe/css/syntax.css">
@@ -20,201 +25,127 @@
 
   <body>
 
-    <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
 
-      <div class="clearfix">
-        <header>
-  <a href="/cantaloupe/">
-    <img src="images/cantaloupe.jpg" width="154" height="81">
-  </a>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/cantaloupe/">
+        <img alt="Cantaloupe" src="/cantaloupe/images/cantaloupe.png" width="40">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/cantaloupe/get-started.html">Get Started</a></li>
+        <li><a href="/cantaloupe/manual/">User Manual</a></li>
+        <li><a href="/cantaloupe/support.html">Support</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/medusa-project/cantaloupe/releases.atom" title="Subscribe to Releases"><img width="22" height="22" src="/cantaloupe/images/feed.svg"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+      <header>
+  <img src="/cantaloupe/images/cantaloupe.png" width="154" height="81">
   <h1>
-    <a href="/cantaloupe/">Cantaloupe</a>
+    Cantaloupe
     <br>
-    <small>Extensible multi-protocol dynamic image server in Java</small>
+    <small>High-performance dynamic image server in Java</small>
   </h1>
 </header>
 
-      </div>
+<p>Cantaloupe is an open-source image server enabling on-demand generation of derivatives of high-resolution source images. With available operations including cropping, scaling, and rotation, it can support deep-zooming image viewers, as well as on-the-fly thumbnail generation. Compliance with the <a href="http://iiif.io/">IIIF Image API</a> enables it to work with <a href="http://iiif.io/apps-demos/">a growing number of client applications</a>.</p>
 
-      <div class="row">
-        <div class="col-sm-3">
-          <nav id="toc">
-  <ul>
-    <li><a href="/cantaloupe/">Home</a>
-      <ul>
-        <li><a href="/cantaloupe/#About">About</a></li>
-        <li><a href="/cantaloupe/#Features">Features</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="getting-started.html">Getting Started</a>
-      <ul>
-        <li><a href="getting-started.html#Requirements">Requirements</a></li>
-        <li><a href="getting-started.html#Download">Download</a></li>
-        <li><a href="getting-started.html#Configuration">Configuration</a></li>
-        <li><a href="getting-started.html#Running">Running</a></li>
-        <li><a href="getting-started.html#Upgrading">Upgrading</a></li>
-        <li><a href="getting-started.html#GettingHelp">Getting Help</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="deployment.html">Deployment</a>
-      <ul>
-        <li><a href="deployment.html#Hardware">Hardware</a></li>
-        <li><a href="deployment.html#Caching">Caching</a></li>
-        <li><a href="deployment.html#Limiting">Limiting</a></li>
-        <li><a href="deployment.html#Reverse-Proxying">Reverse-Proxying</a></li>
-        <li><a href="deployment.html#SSL%2FTLS">SSL/TLS</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="endpoints.html">Endpoints</a>
-      <ul>
-        <li><a href="endpoints.html#IIIFImageAPI1">IIIF Image API 1.x</a></li>
-        <li><a href="endpoints.html#IIIFImageAPI2">IIIF Image API 2.x</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="resolvers.html">Resolvers</a>
-      <ul>
-        <li><a href="resolvers.html#Static%20Resolution">Static Resolver</a></li>
-        <li><a href="resolvers.html#Dynamic%20Resolution">Dynamic Resolvers</a></li>
-        <li><a href="resolvers.html#FilesystemResolver">Filesystem</a></li>
-        <li><a href="resolvers.html#HttpResolver">HTTP</a></li>
-        <li><a href="resolvers.html#JdbcResolver">JDBC</a></li>
-        <li><a href="resolvers.html#AmazonS3Resolver">Amazon S3</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="processors.html">Processors</a>
-      <ul>
-        <li><a href="processors.html#Source%20Format%20Support">Format Support</a></li>
-        <li><a href="processors.html#Compatibility">Resolver Compatibility</a></li>
-        <li><a href="processors.html#Java2dProcessor">Java 2D</a></li>
-        <li><a href="processors.html#GraphicsMagickProcessor">GraphicsMagick</a></li>
-        <li><a href="processors.html#ImageMagickProcessor">ImageMagick</a></li>
-        <li><a href="processors.html#JaiProcessor">JAI</a></li>
-        <li><a href="processors.html#KakaduProcessor">Kakadu</a></li>
-        <li><a href="processors.html#OpenJpegProcessor">OpenJPEG</a></li>
-        <li><a href="processors.html#FfmpegProcessor">FFmpeg</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="caches.html">Caches (Server-Side)</a>
-      <ul>
-        <li><a href="caches.html#Purging">Purging</a></li>
-        <li><a href="caches.html#FilesystemCache">Filesystem</a></li>
-        <li><a href="caches.html#JdbcCache">JDBC</a></li>
-      </ul>
-    </li>
-    <li><a href="client-caching.html">Caching (Client-Side)</a></li>
-    <li>
-      <a href="access-control.html">Access Control</a>
-      <ul>
-        <li><a href="access-control.html#Authentication">Authentication</a></li>
-        <li><a href="access-control.html#Authorization">Authorization</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="logging.html">Logging</a>
-      <ul>
-        <li><a href="logging.html#Application%20Log">Application Log</a></li>
-        <li><a href="logging.html#Access%20Log">Access Log</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="source-formats.html">Source Formats</a>
-      <ul>
-        <li><a href="source-formats.html#JPEG">JPEG</a></li>
-        <li><a href="source-formats.html#JPEG2000">JPEG2000</a></li>
-        <li><a href="source-formats.html#TIFF">TIFF</a></li>
-      </ul>
-    </li>
-    <li><a href="delegate-script.html">Delegate Script</a></li>
-    <li>
-      <a href="developers.html">For Developers</a>
-      <ul>
-        <li><a href="/cantaloupe/javadoc/">Javadoc</a></li>
-        <li><a href="developers.html#Contributing">Contributing</a></li>
-      </ul>
-    </li>
-    <li><a href="changes.html">Change Log</a>
-  </ul>
-</nav>
+<p><!--Developed at the <a href="http://www.library.illinois.edu/">University of Illinois at Urbana-Champaign Library</a>, Cantaloupe augments an emerging digital image repository containing thousands of high-resolution scanned images. -->Project goals include performance, scalability, and extensibility, without sacrificing ease-of-use.</p>
 
-        </div> <!-- .col-sm-3 -->
+<hr>
 
-        <div class="col-sm-9">
-          <h2 id="About">About</h2>
-
-<p>Cantaloupe is a free, open-source image server that enables on-the-fly derivative generation from high-resolution source images. With available processing operations including cropping, scaling, and rotation, it can support deep-zooming image viewers, as well as on-the-fly thumbnail generation. Compliance with the <a href="http://iiif.io/api/image/">IIIF Image API</a> enables it to work with <a href="http://iiif.io/apps-demos.html">a growing number of client applications</a>.</p>
-
-<p>Developed at the <a href="http://www.library.illinois.edu/">University of Illinois at Urbana-Champaign Library</a>, Cantaloupe augments an emerging digital image repository containing thousands of high-resolution scanned images. Project goals include performance, scalability, and extensibility, without sacrificing ease-of-use.</p>
-
-<figure>
-  <div id="openseadragon1" style="width: 95%; height: 500px; margin: 0 auto"></div>
-  <figcaption>Cantaloupe driving the <a href="https://openseadragon.github.io">OpenSeadragon</a> viewer.
-    <br>JPEG2000 &ndash; 11952&times;8416 pixels &ndash; 95 MB</figcaption>
+<figure style="margin-top: 2em">
+  <div id="openseadragon1" style="width: 96%; height: 420px; margin: 0 auto"></div>
+  <figcaption>
+    Andromeda Galaxy in <a href="https://openseadragon.github.io">OpenSeadragon</a>, powered by Cantaloupe
+    <br>
+    Multi-Resolution Tiled BigTIFF | 6.2 GB | 69536&times;22230 (1.5 gigapixel)
+    <br>
+    <a href="http://www.spacetelescope.org/images/heic1502a/">ESA/Hubble</a>
+  </figcaption>
 </figure>
+
+<hr>
+
+<h2>Benefits</h2>
+
+<div class="row">
+  <div class="col-sm-6">
+    <h3>Easy</h3>
+    <ul>
+      <li>Get started in minutes with no web containers or XML files to deal with. A <strong>fast web server</strong> is built right in.</li>
+      <li><strong>Self-contained</strong> for easy prototyping, deployment, and upgrading.</li>
+    </ul>
+
+    <h3>Flexible</h3>
+    <ul>
+      <li>Drive deep-zooming image viewers, or create thumbnails for images, PDFs, and videos on-the-fly.</li>
+      <li>Use <strong>opaque image identifiers</strong> that do not reveal an underlying resource location for secure and stable URIs.</li>
+      <li>Serve images from multiple sources via the same application instance.</li>
+    </ul>
+
+    <h3>Secure</h3>
+    <ul>
+      <li><strong>Dynamic, selective watermarking</strong> with fine-grained controls.</li>
+      <li>Built-in support for HTTPS and HTTP Basic authentication.</li>
+      <li>Supports <strong>fine-grained authorization policies</strong> for integration into diverse infrastructures.</li>
+    </ul>
+  </div>
+
+  <div class="col-sm-6">
+    <h3>Standards-Compliant</h3>
+    <ul>
+      <li>Fully compliant with all versions of the IIIF Image API, with separate endpoints for versions 1 and 2.</li>
+    </ul>
+
+    <h3>Modular</h3>
+    <ul>
+      <li><strong>Pluggable resolvers</strong> for retrieving images from a variety of sources&mdash;including filesystems, databases, remote web servers, and cloud storage&mdash;with optional scriptable "hooks" to enable dynamic resolver selection and image lookup.</li>
+      <li><strong>Pluggable processors</strong> to support a variety of source image formats&mdash;as well as still-frame extraction from videos in a variety of formats.</li>
+      <li><strong>Pluggable caches</strong> with customizable strategies and available automatic maintenance.</li>
+    </ul>
+
+    <h3>Fast</h3>
+    <ul>
+      <li><strong>Optimized JPEG2000 and TIFF readers</strong> capable of excellent performance with massive images.</li>
+      <li>Available filesystem and database caches to speed up response times and reduce server load.</li>
+    </ul>
+  </div>
+</div>
 
 <script src="/cantaloupe/scripts/openseadragon.min.js"></script>
 <script type="text/javascript">
     var viewer = OpenSeadragon({
         id: "openseadragon1",
         prefixUrl: "images/openseadragon/",
-        tileSources: "http://iiif.library.illinois.edu/dls/iiif/2/milwaukee.jp2"
+        showNavigator: true,
+        tileSources: "https://iiif.library.illinois.edu/dls/iiif/2/andromeda-pyramidal-tiled.tif"
     });
 </script>
 
-<p>Cantaloupe features a configurable processing pipeline based on:</p>
-
-<ul>
-  <li><a href="endpoints.html">Endpoints</a>, that intercept and translate client requests;</li>
-  <li><a href="resolvers.html">Resolvers</a>, that locate and retrieve the source images specified in the requests;</li>
-  <li><a href="processors.html">Processors</a>, that transform them according to the request parameters; and</li>
-  <li><a href="caches.html">Caches</a>, that cache the generated images.</li>
-</ul>
-
-<p>This makes it adaptable and future-ready, while remaining easy to configure and use.</p>
-
-<h2 id="Features">Features</h2>
-
-<ul>
-  <li><strong>Easy to get working</strong>. Cantaloupe is an <a href="getting-started.html#Configuration">uncharacteristically simple</a> Java application with no Servlet containers or XML files to deal with. A <strong>fast web server</strong> is built right in.</li>
-  <li><strong>Self-contained</strong> for easy prototyping, deployment, and upgrading.</li>
-  <li><strong>Pluggable resolvers</strong> for retrieving images from a <a href="resolvers.html">variety of sources</a>, with optional scriptable "hooks" to enable dynamic resolver selection and image lookup.</li>
-  <li>Supports <strong>opaque image identifiers</strong> for secure and stable URIs.</li>
-  <li><strong>Pluggable processors</strong> to support a variety of source image formats&mdash;as well as <a href="processors.html#FfmpegProcessor">still-frame extraction from videos</a> in a variety of formats.</li>
-  <li><strong>Optimized JPEG2000 and TIFF readers</strong> capable of excellent performance even with very large source images.</li>
-  <li>Optional <strong>server-side caching</strong> with configurable aggressiveness.</li>
-  <li>Supports <strong>fine-grained authorization policies</strong> for integration with diverse infrastructures.</li>
-</ul>
-
-<h2 id="Download">Download</h2>
-
-<p>
-  <a id="download-button" href="https://github.com/medusa-project/cantaloupe/releases" class="btn btn-success"><span class="fa fa-download"></span> Download</a>
-
-  <a href="https://github.com/medusa-project/cantaloupe/releases.atom" class="btn btn-default">
-    <span class="fa fa-rss"></span> Subscribe to Releases
-  </a>
-</p>
-
-<p>Releases are hosted on <a href="https://github.com/medusa-project/cantaloupe/releases">GitHub</a>.</p>
-
-<script type="text/javascript">
-    $(document).ready(function() { getLatestReleaseInfo(); });
-</script>
-
-        </div>
-      </div>
 
       <footer>
 </footer>
 
 <script src="/cantaloupe/scripts/bootstrap.min.js"></script>
 <script src="/cantaloupe/scripts/base.js"></script>
-
 
     </div>
 

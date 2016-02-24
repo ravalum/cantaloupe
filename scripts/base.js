@@ -17,6 +17,9 @@ function getLatestReleaseInfo() {
         }
         var releaseInfo = release.name + " was updated " + timeAgo +
             " and downloaded " + downloadCount.toLocaleString() + " times.";
+
+        console.log('Download count: ' + downloadCount);
+
         $('#download-button').attr('href', asset.browser_download_url);
 
         // display the latest version number in the download button
