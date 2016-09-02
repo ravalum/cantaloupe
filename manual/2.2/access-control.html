@@ -5,11 +5,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="High-performance dynamic image server in Java
+  <meta name="description" content="High-performance IIIF image server in Java
 ">
 
   <title>
-    Cantaloupe
+    Cantaloupe Image Server
     
       :: Access Control
     
@@ -20,13 +20,22 @@
   <link rel="stylesheet" href="/cantaloupe/css/base.css">
 
   <script src="/cantaloupe/scripts/jquery.min.js"></script>
+
+  <script>
+  // Redirect http:// to https:// (except on localhost)
+  var host = 'https://medusa-project.github.io'.replace('http://', '').
+      replace('https://', '').split(/[/?#]/)[0];
+  if (window.location.host == host && window.location.protocol != 'https:') {
+    window.location.protocol = 'https:';
+  }
+  </script>
+
 </head>
 
 
   <body>
 
-    <div class="container">
-      <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default">
   <div class="container-fluid">
 
     <div class="navbar-header">
@@ -56,6 +65,7 @@
 </nav>
 
 
+    <div class="container">
       <div class="row">
   <div class="col-md-3 hidden-xs hidden-sm">
     <ul class="toc">
@@ -195,8 +205,8 @@
 
   </div>
   <div class="col-sm-12 col-md-9">
-    <div class="alert alert-warning">
-  This manual is for a previous version of Cantaloupe.
+    <div class="alert alert-info">
+  This manual is for a previous version.
 </div>
 
     <ol class="breadcrumb">
