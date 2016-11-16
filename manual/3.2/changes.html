@@ -54,6 +54,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/cantaloupe/get-started.html">Get Started</a></li>
         <li><a href="/cantaloupe/manual/">User Manual</a></li>
+        <li><a href="https://github.com/medusa-project/cantaloupe/">GitHub</a></li>
         <li><a href="/cantaloupe/support.html">Support</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -98,6 +99,15 @@
 </ol>
 
 <h2>What's New in <span class="version">3.2</span></h2>
+
+<h2>3.2.1</h2>
+
+<ul>
+  <li>Fixed a bug that caused the resolver selected by the <code>get_resolver()</code> delegate method to not be initielized properly.</li>
+  <li>Fixed a path-handling bug affecting ImageMagickProcessor and GraphicsMagickProcessor primarily in Windows.</li>
+  <li>Fixed incorrect image sizes when using FfmpegProcessor with percentage scales above 100%.</li>
+  <li>Improved support for 16-bit source images in Java2dProcessor, JaiProcessor, GraphicsMagickProcessor, and ImageMagickProcessor.</li>
+</ul>
 
 <h2>3.2</h2>
 
