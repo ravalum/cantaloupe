@@ -100,6 +100,16 @@
 
 <h2>What's New in <span class="version">3.2</span></h2>
 
+<h2>3.2.3</h2>
+
+<ul>
+  <li>Fixed inability to upscale in JaiProcessor, omitted in error from 3.2.2.</li>
+  <li>Fixed incorrect scale size computation using flooring instead of rounding.</li>
+  <li>Fixed a bug in FilesystemCache that could cause an HTTP 500 error when accessing the same uncached <span class="filename">info.json</span> resource concurrently.</li>
+  <li>FilesystemCache cleans up zero-byte files created in certain situations, typically involving failure in the underlying storage.</li>
+  <li>Fixed a bug that could cause incompletely-written cached images (with any cache) to not get cleaned up properly.</li>
+</ul>
+
 <h2>3.2.2</h2>
 
 <ul>
