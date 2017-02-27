@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="High-performance IIIF image server in Java
+">
+
+  <title>
+    Cantaloupe Image Server
+    
+      :: Endpoints
+    
+  </title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/cantaloupe/css/syntax.css">
+  <link rel="stylesheet" href="/cantaloupe/css/base.css">
+
+  <script src="/cantaloupe/scripts/jquery.min.js"></script>
+
+  <script>
+  // Redirect http:// to https:// (except on localhost)
+  var host = 'https://medusa-project.github.io'.replace('http://', '').
+      replace('https://', '').split(/[/?#]/)[0];
+  if (window.location.host == host && window.location.protocol != 'https:') {
+    window.location.protocol = 'https:';
+  }
+  </script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/cantaloupe/">
+        <img alt="Cantaloupe" src="/cantaloupe/images/cantaloupe.png" width="40">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/cantaloupe/get-started.html">Get Started</a></li>
+        <li><a href="/cantaloupe/manual/">User Manual</a></li>
+        <li><a href="https://github.com/medusa-project/cantaloupe/">GitHub</a></li>
+        <li><a href="/cantaloupe/support.html">Support</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/medusa-project/cantaloupe/releases.atom" title="Subscribe to Releases"><img width="22" height="22" src="/cantaloupe/images/feed.svg"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+  <div class="col-md-3 hidden-xs hidden-sm">
+    <ul class="toc">
+  <li><a href="changes.html">What's New in <span class="version">3.2</span></a></li>
+  <li><a href="upgrading.html">Upgrading</a></li>
+  <li><a href="getting-started.html">Getting Started</a></li>
+  <li><a href="endpoints.html">Endpoints</a></li>
+  <li><a href="images.html">Images</a></li>
+  <li><a href="resolvers.html">Resolvers</a></li>
+  <li><a href="processors.html">Processors</a></li>
+  <li><a href="caching.html">Caching</a></li>
+  <li><a href="access-control.html">Access Control</a></li>
+  <li><a href="metadata.html">Metadata</a></li>
+  <li><a href="color-profiles.html">Color Profiles</a></li>
+  <li><a href="watermarking.html">Watermarking</a></li>
+  <li><a href="redaction.html">Redaction</a></li>
+  <li><a href="delegate-script.html">Delegate Script</a></li>
+  <li><a href="logging.html">Logging</a></li>
+  <li><a href="deployment.html">Deployment</a></li>
+  <li><a href="developers.html">For Developers</a></li>
+</ul>
+
+  </div>
+  <div class="col-sm-12 col-md-9">
+    <ol class="breadcrumb">
+  <li><a href="/cantaloupe/">Home</a></li>
+  <li><a href="/cantaloupe/manual/">User Manual</a></li>
+  <li><a href="/cantaloupe/manual/3.2/">3.2</a></li>
+  <li class="active">Endpoints</li>
+</ol>
+
+<h1>Endpoints</h1>
+
+<ul>
+  <li><a href="#IIIFImageAPI1">IIIF Image API 1.x</a></li>
+  <li><a href="#IIIFImageAPI2">IIIF Image API 2.x</a></li>
+</ul>
+
+<h2 id="IIIFImageAPI1">IIIF Image API 1.x</h2>
+
+<h3>Documentation</h3>
+
+<ul>
+  <li><a href="http://iiif.io/api/image/1.0/">IIIF Image API 1.0</a></li>
+  <li><a href="http://iiif.io/api/image/1.1/">IIIF Image API 1.1</a></li>
+</ul>
+
+<h3>Location</h3>
+
+<p>This endpoint is available at <span class="filename">/iiif/1</span>.</p>
+
+<h3>Compliance</h3>
+
+<p>Cantaloupe implements version 1.1 of this API, for compatibility with all 1.x clients. Compliance level is dynamically computed and declared on a per-processor basis. Most processors are "Level 2"-compliant.</p>
+
+<h3>Information Response Notes</h3>
+
+<dl>
+  <dt><code>tile_width</code> and <code>tile_height</code></dt>
+  <dd>These keys contain refer to tile dimensions that will be relatively efficient to deliver.
+    <ul>
+      <li>For images that are natively tiled, these will be the smallest of the native tile dimensions, the value of the <code>endpoint.iiif.min_tile_size</code> configuration key, or the full image dimensions.</li>
+      <li>For untiled images, these will be the smallest value of <i>n</i> for the formula: <i>(smallest dimension) * 1/2<sup>n</sup> &gt; <code>endpoint.iiif.min_tile_size</code></i>.</li>
+    </ul>
+  </dd>
+  <dt><code>formats</code></dt>
+  <dd>This list of output formats depends on the processor assigned to the format of the source image.</dd>
+  <dt><code>qualities</code></dt>
+  <dd>Depends on the qualities supported by the processor assigned to the format of the source image.</dd>
+  <dt><code>profile</code></dt>
+  <dd>Dynamically computed based on the features supported by the processor assigned to the format of the source image, as well as features built into the image server itself.</dd>
+</dl>
+
+<h3>Enabling/Disabling</h3>
+
+<p>This endpoint can be enabled or disabled by setting <code>endpoint.iiif.1.enabled</code> to <code>true</code> or <code>false</code> in the configuration file.</p>
+
+<hr>
+
+<h2 id="IIIFImageAPI2">IIIF Image API 2.x</h2>
+
+<h3>Documentation</h3>
+
+<ul>
+  <li><a href="http://iiif.io/api/image/2.0/">IIIF Image API 2.0</a></li>
+  <li><a href="http://iiif.io/api/image/2.1/">IIIF Image API 2.1</a></li>
+</ul>
+
+<h3>Location</h3>
+
+<p>This endpoint is available at <span class="filename">/iiif/2</span>.</p>
+
+<h3>Compliance</h3>
+
+<p>Cantaloupe implements version 2.1 of this API, for compatibility with all 2.x clients. Compliance level is dynamically computed and declared on a per-processor basis. Most processors are "Level 2"-compliant.</p>
+
+<h3>Information Response Notes</h3>
+
+<dl>
+  <dt><code>sizes</code></dt>
+  <dd>Contains an array of width/height pairs according to the formula <i>dimension * 1/2<sup>n</sup> &gt; 64</i>. (It is possible to restrict access to only these sizes using the <code>endpoint.iiif.2.restrict_to_sizes</code> configuration option.)</dd>
+  <dt><code>tiles</code></dt>
+  <dd>Contains a list of tile sizes that will be relatively efficient to deliver, along with a list of scale factors at which each size is available.
+    <ul>
+      <li>For images that are natively tiled, the <code>width</code> and <code>height</code> will be the smallest of the native tile dimensions, the value of the <code>endpoint.iiif.min_tile_size</code> configuration key, or the full image dimensions.</li>
+      <li>For untiled images, they will be the smallest value of <i>n</i> for the formula: <i>(smallest dimension) * 1/2<sup>n</sup> &gt; <code>endpoint.iiif.min_tile_size</code></i>.</li>
+    </ul>
+  </dd>
+  <dt><code>profile/formats</code></dt>
+  <dd>This list of output formats depends on the processor assigned to the format of the source image.</dd>
+  <dt><code>profile/maxArea</code></dt>
+  <dd>This value is based on the value of <code>max_pixels</code> in the configuration. If set to zero, it will be omitted.</dd>
+  <dt><code>profile/qualities</code></dt>
+  <dd>Depends on the qualities supported by the processor assigned to the format of the source image.</dd>
+  <dt><code>profile/supports</code></dt>
+  <dd>Dynamically computed based on the features supported by the processor assigned to the format of the source image, as well as features built into the image server itself.</dd>
+  <dt>Other keys (<code>attribution</code>, <code>service</code>, etc.)</dt>
+  <dd>See the <a href="#Additional Information Response Keys">Additional Information Response Keys</a> section.</dd>
+</dl>
+
+<h4 id="Additional Information Response Keys">Additional Information Response Keys</h4>
+
+<p>In addition to the the server-supplied keys that appear in the information JSON response, custom keys can be added, such as to declare <a href="http://iiif.io/api/annex/services/">service profiles</a> or, beginning in Image API 2.1, an optional rights statement and/or logo. The <a href="delegate-script.html">delegate script</a> merely needs to implement the <code>extra_iiif2_information_response_keys()</code> method. An example implementation follows:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">module</span> <span class="nn">Cantaloupe</span>
+  <span class="c1">##</span>
+  <span class="c1"># Used to add additional keys to the information JSON response. including</span>
+  <span class="c1"># `attribution`, `license`, `logo`, `service`, and custom keys. See</span>
+  <span class="c1"># {http://iiif.io/api/image/2.1/#image-information the Image API</span>
+  <span class="c1"># specification}.</span>
+  <span class="c1">#</span>
+  <span class="c1"># @param identifier [String] Image identifier</span>
+  <span class="c1"># @return [Hash] Hash that will be merged into IIIF Image API 2.x</span>
+  <span class="c1">#                information responses. Return an empty hash to add nothing.</span>
+  <span class="c1">#</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">extra_iiif2_information_response_keys</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="s1">'attribution'</span> <span class="o">=&gt;</span>  <span class="s1">'Copyright My Great Organization. All rights '</span><span class="p">\</span>
+                          <span class="s1">'reserved.'</span><span class="p">,</span>
+        <span class="s1">'license'</span> <span class="o">=&gt;</span>  <span class="s1">'http://example.org/license.html'</span><span class="p">,</span>
+        <span class="s1">'logo'</span> <span class="o">=&gt;</span>  <span class="s1">'http://example.org/logo.png'</span><span class="p">,</span>
+        <span class="s1">'service'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+            <span class="s1">'@context'</span> <span class="o">=&gt;</span> <span class="s1">'http://iiif.io/api/annex/services/physdim/1/context.json'</span><span class="p">,</span>
+            <span class="s1">'profile'</span> <span class="o">=&gt;</span> <span class="s1">'http://iiif.io/api/annex/services/physdim'</span><span class="p">,</span>
+            <span class="s1">'physicalScale'</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="o">.</span><span class="mo">0025</span><span class="p">,</span>
+            <span class="s1">'physicalUnits'</span> <span class="o">=&gt;</span> <span class="s1">'in'</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre></figure>
+
+<h3>Enabling/Disabling</h3>
+
+<p>This endpoint can be enabled or disabled by setting <code>endpoint.iiif.2.enabled</code> to <code>true</code> or <code>false</code> in the configuration file.</p>
+
+  </div>
+</div>
+
+
+      <footer>
+</footer>
+
+<script src="/cantaloupe/scripts/bootstrap.min.js"></script>
+<script src="/cantaloupe/scripts/base.js"></script>
+
+    </div>
+
+  </body>
+
+</html>

@@ -100,6 +100,14 @@
 
 <h2>What's New in <span class="version">3.2</span></h2>
 
+<h2>3.2.4</h2>
+
+<ul>
+  <li>Fixed all processors except JaiProcessor treating scale-to-dimensions requests (<code>w,h</code>) as scale-to-fit (<code>!w,h</code>).</li>
+  <li>Fixed a bug affecting upscaled crops when using pyramidal images with Java2dProcessor or JaiProcessor.</li>
+  <li>Worked around a bug in JAI involving downscaling of compressed TIFF tiles, affecting JaiProcessor.</li>
+</ul>
+
 <h2>3.2.3</h2>
 
 <ul>
