@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Implementation-Title: Cantaloupe
+Implementation-Version: 3.3
+Archiver-Version: Plexus Archiver
+Built-By: alexd
+Specification-Title: Cantaloupe
+Implementation-Vendor-Id: edu.illinois.library.cantaloupe
+Created-By: Apache Maven 3.3.9
+Build-Jdk: 1.8.0_60
+Specification-Version: 3.3
+Implementation-URL: https://medusa-project.github.io/cantaloupe/
+Main-Class: edu.illinois.library.cantaloupe.StandaloneEntry
+
