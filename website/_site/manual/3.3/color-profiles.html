@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="High-performance IIIF image server in Java
+">
+
+  <title>
+    Cantaloupe Image Server
+    
+      :: Color Profiles
+    
+  </title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/cantaloupe/css/syntax.css">
+  <link rel="stylesheet" href="/cantaloupe/css/base.css">
+
+  <script src="/cantaloupe/scripts/jquery.min.js"></script>
+
+  <script>
+  // Redirect http:// to https:// (except on localhost)
+  var host = 'http://0.0.0.0:4000'.replace('http://', '').
+      replace('https://', '').split(/[/?#]/)[0];
+  if (window.location.host == host && window.location.protocol != 'https:') {
+    window.location.protocol = 'https:';
+  }
+  </script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/cantaloupe/">
+        <img alt="Cantaloupe" src="/cantaloupe/images/cantaloupe.png" width="40">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="/cantaloupe/get-started.html">Get Started</a></li>
+        <li><a href="/cantaloupe/manual/">User Manual</a></li>
+        <li><a href="https://github.com/medusa-project/cantaloupe/">GitHub</a></li>
+        <li><a href="/cantaloupe/help.html">Help &amp; Feedback</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/medusa-project/cantaloupe/releases.atom" title="Subscribe to Releases"><img width="22" height="22" src="/cantaloupe/images/feed.svg"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="container">
+      <div class="row">
+  <div class="col-md-3 hidden-xs hidden-sm">
+    <ul class="toc">
+  <li><a href="changes.html">What's New in <span class="version">3.3</span></a></li>
+  <li><a href="upgrading.html">Upgrading</a></li>
+  <li><a href="getting-started.html">Getting Started</a></li>
+  <li><a href="configuration.html">Configuration</a></li>
+  <li><a href="endpoints.html">Endpoints</a></li>
+  <li><a href="images.html">Images</a></li>
+  <li><a href="resolvers.html">Resolvers</a></li>
+  <li><a href="processors.html">Processors</a></li>
+  <li><a href="caching.html">Caching</a></li>
+  <li><a href="access-control.html">Access Control</a></li>
+  <li><a href="metadata.html">Metadata</a></li>
+  <li><a href="color-profiles.html">Color Profiles</a></li>
+  <li><a href="overlays.html">Overlays</a></li>
+  <li><a href="redaction.html">Redaction</a></li>
+  <li><a href="delegate-script.html">Delegate Script</a></li>
+  <li><a href="logging.html">Logging</a></li>
+  <li><a href="deployment.html">Deployment</a></li>
+  <li><a href="remote-management.html">Remote Management</a></li>
+  <li><a href="developers.html">For Developers</a></li>
+</ul>
+
+  </div>
+  <div class="col-sm-12 col-md-9">
+    <ol class="breadcrumb">
+  <li><a href="/cantaloupe/">Home</a></li>
+  <li><a href="/cantaloupe/manual/">User Manual</a></li>
+  <li><a href="/cantaloupe/manual/3.3/">3.3</a></li>
+  <li class="active">Color Profiles</li>
+</ol>
+
+<h1>Color Profiles</h1>
+
+<ul>
+  <li><a href="#Overview">Overview</a></li>
+  <li><a href="#Processor%20Support">Processor Support</a></li>
+</ul>
+
+<h2 id="Overview">Overview</h2>
+
+<p>ICC color profiles are small files, or packets of data, that define transformations from one color space to another. Color profiles can be inserted at various stages in an image processing workflow&mdash;from scanner to computer, computer to printer, and even monitor to eye&mdash;to ensure that accurate colors are maintained throughout the workflow.</p>
+
+<p>Color profiles can also be embedded within image files, for the purpose of mapping the color space in which an image was produced to its internal color data. This enables viewers to reproduce image colors accurately, as they were seen by the producer. By embedding a profile, the producer need not know anything about the displays on which an image will be viewed, and need not destructively modify the color values within the image data itself.</p>
+
+<p>Note that one color profile in particular, sRGB, has become a "de facto" standard profile on the World Wide Web. There is typically no need to embed an sRGB profile into profile-less images, as viewers will tend to automatically assume that these map to an sRGB space, and apply the conversion themselves. There is therefore no provision for embedding profiles into profile-less images.</p>
+
+<h3 id="Processor Support">Processor Support</h3>
+
+<p>Most processors support embedded color profiles; see the <a href="processors.html#Supported%20Features">table of processor-supported features</a>.</p>
+
+  </div>
+</div>
+
+
+      <footer>
+</footer>
+
+<script src="/cantaloupe/scripts/bootstrap.min.js"></script>
+<script src="/cantaloupe/scripts/base.js"></script>
+
+    </div>
+
+  </body>
+
+</html>
