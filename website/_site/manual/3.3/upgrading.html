@@ -23,7 +23,7 @@
 
   <script>
   // Redirect http:// to https:// (except on localhost)
-  var host = 'https://medusa-project.github.io'.replace('http://', '').
+  var host = 'http://0.0.0.0:4000'.replace('http://', '').
       replace('https://', '').split(/[/?#]/)[0];
   if (window.location.host == host && window.location.protocol != 'https:') {
     window.location.protocol = 'https:';
