@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="High-performance IIIF image server in Java
+">
+
+  <title>
+    Cantaloupe Image Server
+    
+      :: Help & Feedback
+    
+  </title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/cantaloupe/css/syntax.css">
+  <link rel="stylesheet" href="/cantaloupe/css/base.css">
+
+  <script src="/cantaloupe/scripts/jquery.min.js"></script>
+
+  <script>
+  // Redirect http:// to https:// (except on localhost)
+  var host = 'http://0.0.0.0:4000'.replace('http://', '').
+      replace('https://', '').split(/[/?#]/)[0];
+  if (window.location.host == host && window.location.protocol != 'https:') {
+    window.location.protocol = 'https:';
+  }
+  </script>
+
+</head>
+
+
+  <body>
+
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/cantaloupe/">
+        <img alt="Cantaloupe" src="/cantaloupe/images/cantaloupe.png" width="40">
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Started <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cantaloupe/get-started.html">For the First Time</a></li>
+            <li><a href="/cantaloupe/upgrade.html">Upgrade</a></li>
+            <li class="divider"></li>
+            <li><a href="/cantaloupe/changes.html">Change Log</a></li>
+          </ul>
+        </li>
+        <li><a href="/cantaloupe/manual/">User Manual</a></li>
+        <li><a href="https://github.com/medusa-project/cantaloupe/">GitHub</a></li>
+        <li><a href="/cantaloupe/help.html">Help &amp; Feedback</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="https://github.com/medusa-project/cantaloupe/releases.atom" title="Subscribe to Releases"><img width="22" height="22" src="/cantaloupe/images/feed.svg"></a></li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+
+    <div class="container">
+      <h1>Help &amp; Feedback</h1>
+
+<p>For questions, bug reports, and other issues, please <a href="https://github.com/medusa-project/cantaloupe/issues/new">file a GitHub issue</a>. Ideas, feature requests, and other feedback are also welcome.</p>
+
+<p>If you'd rather not use GitHub, you may also <a href="https://github.com/medusa-project/cantaloupe/blob/f1c211a7bdb019608411e7157fc5365f81367135/pom.xml#L24">contact the maintainer directly</a>.</p>
+
+
+      <footer>
+</footer>
+
+<script src="/cantaloupe/scripts/bootstrap.min.js"></script>
+<script src="/cantaloupe/scripts/base.js"></script>
+
+    </div>
+
+  </body>
+
+</html>
