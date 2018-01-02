@@ -52,7 +52,15 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/cantaloupe/get-started.html">Get Started</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Started <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/cantaloupe/get-started.html">For the First Time</a></li>
+            <li><a href="/cantaloupe/upgrade.html">Upgrade</a></li>
+            <li class="divider"></li>
+            <li><a href="/cantaloupe/changes.html">Change Log</a></li>
+          </ul>
+        </li>
         <li><a href="/cantaloupe/manual/">User Manual</a></li>
         <li><a href="https://github.com/medusa-project/cantaloupe/">GitHub</a></li>
         <li><a href="/cantaloupe/help.html">Help &amp; Feedback</a></li>
@@ -66,28 +74,32 @@
 </nav>
 
 
-    <div class="container">
+    <div class="container-fluid">
       <header>
-  <img src="/cantaloupe/images/cantaloupe.png" width="154" height="81">
-  <h1>
-    Cantaloupe
-    <br>
-    <small>High-performance dynamic image server in Java</small>
-  </h1>
+  <div class="media">
+    <div class="media-left media-middle">
+      <img src="/cantaloupe/images/cantaloupe.png" class="media-object" width="154" height="81">
+    </div>
+    <div class="media-body">
+      <h1 class="media-heading">Cantaloupe
+        <br>
+        <small>High-performance dynamic image server in Java</small></h1>
+    </div>
+  </div>
 </header>
 
-<p>Cantaloupe is an open-source image server enabling on-demand generation of derivatives of high-resolution source images. With available operations including cropping, scaling, and rotation, it can support deep-zooming image viewers, as well as on-the-fly thumbnail generation. Compliance with the <a href="http://iiif.io/">IIIF Image API</a> enables it to work with <a href="http://iiif.io/apps-demos/">a growing number of client applications</a>.</p>
+<p>Cantaloupe is an open-source dynamic image server for on-demand generation of derivatives of high-resolution source images. With available operations including cropping, scaling, and rotation, it can support deep-zooming image viewers, as well as on-the-fly thumbnail generation. Compliance with the <a href="http://iiif.io/">IIIF Image API</a> enables it to work with <a href="http://iiif.io/apps-demos/">a growing number of client applications</a>.</p>
 
-<p><!--Developed at the <a href="http://www.library.illinois.edu/">University of Illinois at Urbana-Champaign Library</a>, Cantaloupe augments an emerging digital image repository containing thousands of high-resolution scanned images. -->Project goals include performance, scalability, and extensibility, without sacrificing ease-of-use.</p>
+<p>Project goals include performance, scalability, and extensibility, without sacrificing ease-of-use.</p>
 
 <hr>
 
 <figure style="margin-top: 2em">
-  <div id="openseadragon1" style="width: 96%; height: 420px; margin: 0 auto"></div>
+  <div id="openseadragon1" style="width: 100%; min-height: 300px"></div>
   <figcaption>
     Andromeda Galaxy in <a href="https://openseadragon.github.io">OpenSeadragon</a>, powered by Cantaloupe
     <br>
-    Multi-Resolution Tiled BigTIFF | 6.2 GB | 69536&times;22230 (1.5 gigapixel)
+    Multi-Resolution Tiled BigTIFF | 6.2 GB | <span id="image-width">69536</span>&times;<span id="image-height">22230</span> (1.5 gigapixel)
     <br>
     <a href="http://www.spacetelescope.org/images/heic1502a/">ESA/Hubble</a>
   </figcaption>
@@ -101,45 +113,36 @@
   <div class="col-sm-6">
     <h4>Easy</h4>
     <ul>
-      <li>Get started in minutes with no web containers or XML files to deal with. A <strong>fast web server</strong> is built right in, or deploy to a container, if you want.</li>
+      <li>Get started in minutes. A web server is built right in, or deploy to a container, if you want.</li>
       <li><strong>One human-friendly configuration file</strong> with extensive inline help.</li>
-      <li><strong>Self-contained</strong> for painless prototyping, deployment, and upgrading.</li>
     </ul>
 
     <h4>Flexible</h4>
     <ul>
-      <li>Drive deep-zooming image viewers, or create thumbnails for images, PDFs, and videos on-the-fly.</li>
-      <li>Use <strong>opaque image identifiers</strong> that do not reveal an underlying resource location for secure and stable URIs.</li>
+      <li>Drive deep-zooming image viewers and create thumbnails for images, PDFs, and videos on-the-fly.</li>
       <li>Serve images from multiple sources, with different settings, via the same application instance.</li>
-      <li>Dynamically embed custom keys in IIIF information responses.</li>
     </ul>
 
     <h4>Secure</h4>
     <ul>
-      <li><strong>Dynamic, selective image and textual watermarking</strong> with fine-grained controls.</li>
+      <li><strong>Dynamic, selective image and text watermarking</strong> with fine-grained controls.</li>
       <li><strong>On-the-fly redaction</strong> of image regions.</li>
       <li>Built-in support for HTTPS and HTTP Basic authentication.</li>
-      <li>Supports <strong>fine-grained authorization policies</strong> for integration into diverse infrastructures.</li>
-    </ul>
-  </div>
-
-  <div class="col-sm-6">
-    <h4>Standards-Compliant</h4>
-    <ul>
-      <li>Fully conformant to all versions of the IIIF Image API, with separate endpoints for versions 1 and 2.</li>
+      <li>Supports <strong>arbitrary authorization policies</strong> for integration into diverse infrastructures.</li>
     </ul>
 
     <h4>High-Quality</h4>
     <ul>
       <li>Selectable resample filters, sharpening levels, and compression levels to optimize output for speed or quality.</li>
-      <li>Embedded <strong>ICC color profiles</strong> are respected.</li>
     </ul>
 
     <h4>Metadata-Aware</h4>
     <ul>
       <li>Copy embedded <strong>EXIF, IPTC, XMP, and native metadata</strong> from source images to derivative images (with some formats).</li>
     </ul>
+  </div>
 
+  <div class="col-sm-6">
     <h4>Modular</h4>
     <ul>
       <li><strong>Pluggable resolvers</strong> for retrieving images from a variety of sources&mdash;including filesystems, databases, remote web servers, cloud and object storage&mdash;with optional scriptable "hooks" to enable dynamic resolver selection and image lookup.</li>
@@ -147,29 +150,27 @@
       <li><strong>Pluggable caches</strong> with customizable strategies and available automatic maintenance.</li>
     </ul>
 
-    <h4>Manageable</h4>
-    <ul>
-      <li>RESTful methods for common management functions like purging the cache and updating the configuration.</li>
-    </ul>
-
     <h4>Fast</h4>
     <ul>
       <li><strong>Optimized JPEG2000 and TIFF readers</strong> capable of excellent performance with massive images.</li>
-      <li>Available filesystem, database, and cloud storage caches to speed up response times and reduce server load.</li>
+      <li>Available asynchronous filesystem, database, Redis, in-memory, and cloud storage caches to speed up response times and reduce server load.</li>
+      <li>In-memory image metadata and delegate result caches to boost performance for frequently-accessed resources.</li>
+    </ul>
+
+    <h4>Manageable</h4>
+    <ul>
+      <li>HTTP methods for common management functions like purging the cache and updating the configuration.</li>
+    </ul>
+
+    <h4>Standards-Compliant</h4>
+    <ul>
+      <li>Fully conformant to all versions of the IIIF Image API, with separate endpoints for versions 1 and 2.</li>
     </ul>
   </div>
 </div>
 
 <script src="/cantaloupe/scripts/openseadragon.min.js"></script>
-<script type="text/javascript">
-    var viewer = OpenSeadragon({
-        id: "openseadragon1",
-        prefixUrl: "images/openseadragon/",
-        immediateRender: true,
-        showNavigator: true,
-        tileSources: "https://iiif.library.illinois.edu/dls/iiif/2/andromeda-pyramidal-tiled.tif"
-    });
-</script>
+<script src="/cantaloupe/scripts/osd_init.js"></script>
 
 
       <footer>
