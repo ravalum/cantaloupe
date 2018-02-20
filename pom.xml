@@ -458,6 +458,13 @@
       <artifactId>jcl-over-slf4j</artifactId>
       <version>1.7.25</version>
     </dependency>
+
+    <!-- OME BioFormats -->
+    <dependency>
+      <groupId>ome</groupId>
+      <artifactId>formats-gpl</artifactId>
+      <version>5.7.3</version>
+    </dependency>
   </dependencies>
 
   <repositories>
@@ -484,6 +491,17 @@
       <id>maven-restlet</id>
       <name>Restlet repository</name>
       <url>http://maven.restlet.com</url>
+    </repository>
+    <!-- Provides OME BioFormats -->
+    <repository>
+      <id>unidata</id>
+      <name>Unidata Repository</name>
+      <url>https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases</url>
+    </repository>
+    <repository>
+      <id>ome</id>
+      <name>OME Artifactory</name>
+      <url>https://artifacts.openmicroscopy.org/artifactory/maven/</url>
     </repository>
   </repositories>
 
