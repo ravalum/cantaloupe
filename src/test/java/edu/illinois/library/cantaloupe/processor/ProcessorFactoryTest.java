@@ -35,6 +35,17 @@ public class ProcessorFactoryTest extends BaseTest {
         assertTrue(instance.newProcessor(Format.JPG) instanceof Java2dProcessor);
     }
 
+        /**
+     * Assert that we can get BioFormatProcessor for MRCs when
+     * <code>processor.mrc = BioFormatProcessor</code>.
+     */
+    @Test
+    public void newBioFormatProcessorWithSupportedAssignedFormat() throws Exception {
+        Configuration.getInstance().setProperty("processor.mrc",
+                BioFormatProcessor.class.getSimpleName());
+        assertTrue(instance.newProcessor(Format.MRC) instanceof BioFormatProcessor);
+    }
+    
     /**
      * Assert that we get GraphicsMagickProcessor for JPEGs when:
      *
