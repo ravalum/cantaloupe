@@ -162,6 +162,17 @@ public enum Format {
             true),
 
     /**
+     * Tagged Image File Format.
+     */
+    MRC("MRC",
+            ImageType.RASTER,
+            Arrays.asList("image/mrc"),
+            Arrays.asList("mrc"),
+            Type.IMAGE,
+            16,
+            true),
+
+    /**
      * WebM video format.
      */
     WEBM("WebM",

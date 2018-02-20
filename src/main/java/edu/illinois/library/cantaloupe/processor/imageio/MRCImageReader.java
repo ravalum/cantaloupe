@@ -7,6 +7,7 @@ import edu.illinois.library.cantaloupe.processor.ProcessorException;
 import edu.illinois.library.cantaloupe.processor.UnsupportedSourceFormatException;
 import edu.illinois.library.cantaloupe.resolver.StreamSource;
 import edu.illinois.library.cantaloupe.util.SystemUtils;
+import loci.formats.in.MRCReader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.NodeList;
@@ -25,12 +26,15 @@ final class MRCImageReader extends AbstractImageReader {
     private static final Logger LOGGER =
             LoggerFactory.getLogger(MRCImageReader.class);
 
+    private MRCReader mrcReader;
     /**
      * @param sourceFile Source file to read.
      */
     MRCImageReader(Path sourceFile) throws IOException {
         super(sourceFile, Format.MRC);
     }
+
+
 
     /**
      * @param inputStream Stream to read.
@@ -99,4 +103,7 @@ final class MRCImageReader extends AbstractImageReader {
         throw new UnsupportedOperationException();
     }
 
+    public String[] getMIMETypes(){
+        return new String[]{"image/mrc"};
+    }
 }

@@ -149,6 +149,9 @@ public class ImageReader {
             case TIF:
                 reader = new TIFFImageReader(sourceFile);
                 break;
+            case MRC:
+                reader = new MRCImageReader(sourceFile);
+                break;
             default:
                 throw new IllegalArgumentException("Unsupported format: " + format);
         }
@@ -200,6 +203,9 @@ public class ImageReader {
             case TIF:
                 reader = new TIFFImageReader(inputStream);
                 break;
+            case MRC:
+                reader = new MRCImageReader(inputStream);
+                break;
             default:
                 throw new IllegalArgumentException("Unsupported format: " + format);
         }
@@ -235,6 +241,9 @@ public class ImageReader {
                 break;
             case TIF:
                 reader = new TIFFImageReader(streamSource);
+                break;
+            case MRC:
+                reader = new MRCImageReader(streamSource);
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported format: " + format);
